@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const Viewdetails = () =>{
 
@@ -31,18 +31,23 @@ const Viewdetails = () =>{
         
      }, [])
 
+     const navigate=useNavigate();
+     const Dash = () =>{
+         navigate(`/dash/${id}`)
+     }
+
      return(
 
         <div className="card" style={{
-            //marginTop: "100px",
+            marginTop: "75px",
             marginLeft: 450,
             marginRight: 450,
-            backgroundColor:"darkgrey",
-            height: "400px"
+            backgroundColor:"#5373b5",
+            height: "300px"
     
             }}   >
-            <div className="card-header" style={{backgroundColor:"darkgrey"}}><h3>Employee Details</h3></div>
-            <div className="card-body" style={{backgroundColor:"#eeeeee"}}>
+            <div className="card-header" style={{backgroundColor:"#5373b5"}}><h3>Your Details</h3></div>
+            <div className="card-body" style={{backgroundColor:"rgb(179 201 221)"}}>
                 <div >
                 <table style={{marginTop:"3px"}}>
                  
@@ -68,7 +73,8 @@ const Viewdetails = () =>{
                     <tr>
                     <td style={{paddingLeft:"50px"}}>Gender: </td>
                     <td style={{ textAlign:"center" , paddingLeft:"120px"}}>{emp.gender}</td>
-                    </tr>
+                    </tr><br></br>
+                    <tr><Button variant="dark" onClick={Dash}>Back</Button></tr>
                 </table>
                 </div>
                 <div style={{paddingTop:"10px"}}>

@@ -22,7 +22,7 @@ const Claiminsc = ()=>{
         "email":"",
         "gender":"",
         "insurancefor":"",
-        "instatus":"",
+        "instatus":"pending",
         "history":""
     })
 
@@ -62,6 +62,11 @@ useEffect(() => {
                     
                 
             }
+
+            const navigate = useNavigate();
+            const dashboard = () =>{
+                navigate(`/newdash/${id}`)
+            }
         
 
     return(
@@ -76,22 +81,20 @@ useEffect(() => {
 
                 <Form.Group style={{ paddingBottom: 15 }}>
                     <Form.Label>Employee Id</Form.Label>
-                    <b>{emp.empid}</b>
+                    <Form.Control type="number"
+                        id="empid" onChange={handleChange("empid")} />
                 </Form.Group>
 
                 <Form.Group style={{ paddingBottom: 15 }}>
                     <Form.Label>Name:</Form.Label>
-                    <b>{emp.name}</b>
+                    <Form.Control type="text"
+                        id="name" onChange={handleChange("name")} />
                 </Form.Group>
 
                 <Form.Group style={{ paddingBottom: 15 }}>
                     <Form.Label>Gender:</Form.Label>
-                    <b>{emp.gender}</b>
-                </Form.Group>
-
-                <Form.Group style={{ paddingBottom: 15 }}>
-                    <Form.Label>Email:</Form.Label>
-                    <b>{emp.email}</b>
+                    <Form.Control type="text"
+                        id="gender" onChange={handleChange("gender")} />
                 </Form.Group>
 
                 <Form.Group style={{ paddingBottom: 15 }}>
@@ -109,20 +112,18 @@ useEffect(() => {
                 <Form.Group style={{ paddingBottom: 15 }}>
                     <Form.Label>Insurance For:</Form.Label>
                     <select id="insurancefor" onChange={handleChange("insurancefor")}>
-                        <option value=""></option>
-                        <option value="Hospital">Hospital </option>
+                    <option value=""></option>
                         <option value="Medicine">Medicine</option>
                         <option value="Car Insurance">Car Insurance</option>
                         <option value="Bike Insurance">Bike Insurance</option>
-                        <option value="Family">Family</option>
-                        <option value="Son/Daughter">Son/Daughter</option>
-                        <option value="Parents/In-Laws">Parents/In-Laws</option>
+                        <option value="Son/Daughter">Three-wheeler</option>
+                        <option value="Parents/In-Laws">Transport Vehicles</option>
                     </select>
                 </Form.Group>
 
 
-                <Button  onClick={handleSubmit}>Submit your Form</Button>
-                <Button variant="primary" style={{marginLeft:"4%"}}>Back</Button>
+                <Button  onClick={handleSubmit} variant="dark">Submit your Form</Button>
+                <Button variant="dark"  style={{marginLeft:"4%"}} onclick={dashboard}>Back</Button>
                 {submit &&
                     <label>Response Submitted</label>
                 }

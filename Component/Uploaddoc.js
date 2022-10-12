@@ -8,9 +8,18 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 // Worker
 import { Worker } from '@react-pdf-viewer/core'; // install this library
+import Button  from 'react-bootstrap/Button';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const Uploaddoc = () => {
 
+  const navigate=useNavigate();
+  const Save = () =>{
+    alert('Document Saved Succesfully');
+    navigate(`/`)
+  }
+
+ 
   // Create new plugin instance
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   
@@ -82,7 +91,7 @@ export const Uploaddoc = () => {
       {/* if we dont have pdf or viewPdf state is null */}
       {!viewPdf&&<>No pdf file selected</>}
       </div>
-
+<Button onClick={Save}>Save Document</Button>
     </div>
   )
 }

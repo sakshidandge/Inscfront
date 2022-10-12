@@ -5,9 +5,10 @@ function Layout() {
 
     return(
         <>
-           <Navbar bg="dark" variant="dark">
+           <Navbar style={{backgroundColor:"#0f4c83"}} variant="dark">
                <Container>
-                   <Navbar.Brand href="#Home">NavBar</Navbar.Brand>
+                   <Navbar.Brand href="#Home">Claim Insurance</Navbar.Brand>
+                   <Nav.Link href="/" >Home</Nav.Link>
                    <Nav className="me-auto"></Nav>
                </Container>
            </Navbar>

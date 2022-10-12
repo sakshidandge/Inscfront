@@ -1,7 +1,8 @@
 import React from "react";
 import { useState,useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Card  from "react-bootstrap/Card";
+import  Button  from "react-bootstrap/Button";
 
 const Claimdash = () =>{
     const [isApproved, setIsApproved] = useState(false);
@@ -93,12 +94,17 @@ const handleDeny = (insurance) => {
 //       window.location.reload();
 
 }
+
+  const navigate = useNavigate();
+  const Back = () =>{
+    navigate('/loginclaim')
+  }
     return(
 <div>
         <div style={{marginTop:"2%"}}>
           
-            <button className="btn btn-lg btn-primary" onClick={showClaims} style={{marginLeft:"2%",width:"32%"}}>Approve/Deny Leave Request</button>
-           
+            <button className="btn btn-lg btn-primary" onClick={showClaims} style={{marginLeft:"2%",width:"32%"}}>Approve/Deny Insurance Request</button>
+             <Button onClick={Back} variant="dark" style={{marginLeft:"4%",width:"32%"}}>Logout</Button>
             </div>
 
            < Card style={{marginTop:"1%"}}>

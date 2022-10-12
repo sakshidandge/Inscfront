@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 import  Button from "react-bootstrap/button";
 
   
-function Login1() {
+function Loginnew() {
 
   const [id, setId]=useState(0);
   const [password, setPassword]=useState("");
@@ -19,7 +19,7 @@ function Login1() {
   {
     if(emp.empid==id && emp.password==password)
     {
-      navigate(`/dash/${id}`);
+      navigate(`/newdash/${id}`);
     }
 
     else{
@@ -37,11 +37,17 @@ function Login1() {
     setPassword(event.target.value);   
   }
 
+  const Home = () =>{
+    navigate('/');
+}
+  
+  
+
   const [emp, setemp]=useState({
 
     "empid":0,
     "username":"",
-    "password":"",
+    "password":""
 
 });
 
@@ -58,12 +64,14 @@ useEffect(() => {
 
 
   return (
-    <Card style={{
-        display:"block", width:900,marginLeft:"5cm",marginTop:"3cm"
-    }}>
-        <div className="input-number">
+    <div align="center">
+      <img src = {require('../Image/4.jpg')}/>
+  
+      <div  >
+
+      <div className="input-number">
                 <label>UserId</label>
-                    <input type="number" onChange={handleChange} name="Id"  />
+                    <input type="number" onChange={handleChange} name="Id" />
                     </div>
                     <div className="input-text">
                 <label>Password</label>
@@ -72,11 +80,15 @@ useEffect(() => {
                     <div className="button">
                     
                     <Button type="submit" onClick={Dash} variant="dark">Login</Button>
+                    <Button type="submit" onClick={Home} variant="dark" style={{marginLeft:"0.5cm"}}>Back</Button>
                     
                 </div>    
-                    </Card>
+
+      </div>
+       
+                    </div>
   );
   
 }
 
-export default Login1;
+export default Loginnew;

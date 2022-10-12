@@ -59,10 +59,16 @@ useEffect(() => {
        
   }
 
+  const Home = () =>{
+    navigate('/');
+}
+
   return (
-    <Card style={{
-        display:"block", width:900,marginLeft:"5cm",marginTop:"3cm"
-    }}>
+
+    <div align="center">
+      <img src = {require('../Image/4.jpg')}/>
+  
+      <div >
         <div className="input-number">
                 <label>UserId</label>
                     <input type="number" onChange={handleChange}  name="Id"  />
@@ -78,9 +84,11 @@ useEffect(() => {
                     <div className="button">
                     
                     <Button type="submit" onClick={Claimdash} variant="dark">Login</Button>
+                    <Button type="submit" onClick={Home} variant="dark" style={{marginLeft:"0.5cm"}}>Back</Button>
                     
                 </div>    
-                    </Card>
+                  </div>
+                  </div>
   );
   
 }

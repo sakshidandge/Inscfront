@@ -28,20 +28,22 @@ const Dashboard = ()=>{
 
         
     const navigate=useNavigate();
-    const Viewdetails=()=>{
-        navigate(`/viewdetails/${id}`);
-    }
+   
 
     const Claimins=()=>{
-        navigate(`/claiminsc/${id}`);
+        navigate(`/newregister/${id}`);
     }
 
     return(
-        <>
-        <h3>Hello,{emp.username}</h3>
-        <Button onClick={Viewdetails}> View your Details</Button><br></br>
-        <Button onClick={Claimins}>Claim Insurance</Button>
-        </>
+        <div align="center">
+        <h3 style={{marginTop:"1cm"}}><b>Hello,{emp.username}</b></h3>
+       
+        <img src={require('../Image/3.jpg')} style={{width:"30%"}}/>
+        <div style={{marginTop:"1%"}}>
+        
+        <Button onClick={Claimins} variant="dark" style={{marginLeft:"1cm"}}>Claim Insurance</Button></div>
+        <a href="/login">Logout</a>
+        </div>
 
     );
 
